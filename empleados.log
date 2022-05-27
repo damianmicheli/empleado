@@ -530,3 +530,64 @@ Empleado {id: 3, Nombre: 'Roberto', Edad: 33, Empresa: 'Digital', Fecha de Ingre
 Empleado {id: 4, Nombre: 'Miguel Angel', Edad: 36, Empresa: 'Facebook', Fecha de Ingreso: 1985-01-15}
 
 [2022-05-27 16:11:53] [INFO] [Main:21] Conexión a DB finalizada
+[2022-05-27 16:56:02] [INFO] [Main:46] Conexion a DB correcta
+[2022-05-27 16:56:02] [ERROR] [Main:84] El código presenta un problema
+org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Violación de indice de Unicidad ó Clave primaria: "PRIMARY KEY ON PUBLIC.EMPLEADO(ID) ( /* key:2 */ 2, 'Mark', 46, 'Facebook', DATE '2002-01-15')"
+Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.EMPLEADO(ID) ( /* key:2 */ 2, 'Mark', 46, 'Facebook', DATE '2002-01-15')"; SQL statement:
+INSERT INTO EMPLEADO VALUES (2, 'Damian', 42, 'Digital', '2022-11-20') [23505-212]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:508)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:120)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:519)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:174)
+	at org.h2.command.dml.Insert.update(Insert.java:135)
+	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:190)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:143)
+	at empleado.Main.agregarRepetido(Main.java:82)
+	at empleado.Main.main(Main.java:15)
+[2022-05-27 16:56:02] [DEBUG] [Main:108] Registro original: Empleado {id: 3, Nombre: 'Rafael', Edad: 33, Empresa: 'Digital', Fecha de Ingreso: 1999-01-15}
+[2022-05-27 16:56:02] [DEBUG] [Main:134] Registro modificado: Empleado {id: 3, Nombre: 'Roberto', Edad: 33, Empresa: 'Digital', Fecha de Ingreso: 1999-01-15}
+[2022-05-27 16:56:02] [INFO] [Main:170] Se eliminó el siguiente Registro: Empleado {id: 5, Nombre: 'Donatello', Edad: 56, Empresa: 'Digital', Fecha de Ingreso: 2010-01-15}
+[2022-05-27 16:56:02] [INFO] [Main:207] Se eliminó el siguiente Registro: Empleado {id: 6, Nombre: 'Larry', Edad: 50, Empresa: 'Google', Fecha de Ingreso: 1998-08-20}
+[2022-05-27 16:56:02] [INFO] [Main:242] Contenido de la tabla:
+Empleado {id: 1, Nombre: 'Damian', Edad: 42, Empresa: 'Digital', Fecha de Ingreso: 2022-11-20}
+Empleado {id: 2, Nombre: 'Mark', Edad: 46, Empresa: 'Facebook', Fecha de Ingreso: 2002-01-15}
+Empleado {id: 3, Nombre: 'Roberto', Edad: 33, Empresa: 'Digital', Fecha de Ingreso: 1999-01-15}
+Empleado {id: 4, Nombre: 'Miguel Angel', Edad: 36, Empresa: 'Facebook', Fecha de Ingreso: 1985-01-15}
+
+[2022-05-27 16:56:02] [INFO] [Main:21] Conexión a DB finalizada
+[2022-05-27 17:59:08] [INFO] [Main:71] Conexión a DB correcta
+[2022-05-27 17:59:08] [ERROR] [Main:128] El código presenta un problema
+org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Violación de indice de Unicidad ó Clave primaria: "PRIMARY KEY ON PUBLIC.EMPLEADO(ID) ( /* key:2 */ 2, 'Mark', 46, 'Facebook', DATE '2002-01-15')"
+Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.EMPLEADO(ID) ( /* key:2 */ 2, 'Mark', 46, 'Facebook', DATE '2002-01-15')"; SQL statement:
+INSERT INTO EMPLEADO VALUES (2, 'Damian', 42, 'Digital', '2022-11-20') [23505-212]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:508)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:120)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:519)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:174)
+	at org.h2.command.dml.Insert.update(Insert.java:135)
+	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:190)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:143)
+	at empleado.Main.agregarRepetido(Main.java:126)
+	at empleado.Main.main(Main.java:21)
+[2022-05-27 17:59:08] [DEBUG] [Main:177] Registro original: Empleado {id: 3, Nombre: 'Rafael', Edad: 33, Empresa: 'Digital', Fecha de Ingreso: 1999-01-15}
+[2022-05-27 17:59:08] [DEBUG] [Main:204] Registro modificado: Empleado {id: 3, Nombre: 'Roberto', Edad: 33, Empresa: 'Digital', Fecha de Ingreso: 1999-01-15}
+[2022-05-27 17:59:08] [INFO] [Main:245] Se eliminó el siguiente Registro: Empleado {id: 5, Nombre: 'Donatello', Edad: 56, Empresa: 'Digital', Fecha de Ingreso: 2010-01-15}
+[2022-05-27 17:59:08] [INFO] [Main:283] Se eliminó el siguiente Registro: Empleado {id: 6, Nombre: 'Larry', Edad: 50, Empresa: 'Google', Fecha de Ingreso: 1998-08-20}
+[2022-05-27 17:59:08] [INFO] [Main:331] Contenido de la tabla:
+Empleado {id: 1, Nombre: 'Damian', Edad: 42, Empresa: 'Digital', Fecha de Ingreso: 2022-11-20}
+Empleado {id: 2, Nombre: 'Mark', Edad: 46, Empresa: 'Facebook', Fecha de Ingreso: 2002-01-15}
+Empleado {id: 3, Nombre: 'Roberto', Edad: 33, Empresa: 'Digital', Fecha de Ingreso: 1999-01-15}
+Empleado {id: 4, Nombre: 'Miguel Angel', Edad: 36, Empresa: 'Facebook', Fecha de Ingreso: 1985-01-15}
+[2022-05-27 17:59:09] [INFO] [Main:37] Conexión a DB finalizada
