@@ -1,0 +1,135 @@
+[2022-05-27 12:49:26] [INFO] [Main:38] Conexion a DB correcta
+[2022-05-27 12:49:26] [ERROR] [Main:68] El código presenta un problema
+org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Violación de indice de Unicidad ó Clave primaria: "PRIMARY KEY ON PUBLIC.EMPLEADO(ID) ( /* key:2 */ 2, 'Mark', 46, 'Facebook', DATE '2002-01-15')"
+Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.EMPLEADO(ID) ( /* key:2 */ 2, 'Mark', 46, 'Facebook', DATE '2002-01-15')"; SQL statement:
+INSERT INTO EMPLEADO VALUES (2, 'Damian', 42, 'Digital', '2022-11-20') [23505-212]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:508)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:120)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:519)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:174)
+	at org.h2.command.dml.Insert.update(Insert.java:135)
+	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at empleado.Main.main(Main.java:66)
+[2022-05-27 12:49:26] [DEBUG] [Main:88] Registro original: Empleado {id: 2, Nombre: 'Mark', Edad: 46, Empresa: 'Facebook', Fecha de Ingreso: 2002-01-15}
+[2022-05-27 12:49:26] [DEBUG] [Main:114] Registro modificado: Empleado {id: 2, Nombre: 'Juan Carlos', Edad: 46, Empresa: 'Facebook', Fecha de Ingreso: 2002-01-15}
+[2022-05-27 12:49:26] [INFO] [Main:138] Se eliminará el siguiente Registro: Empleado {id: 1, Nombre: 'Damian', Edad: 42, Empresa: 'Digital', Fecha de Ingreso: 2022-11-20}
+[2022-05-27 12:49:26] [INFO] [Main:169] Se eliminará el siguiente Registro: Empleado {id: 6, Nombre: 'Larry', Edad: 50, Empresa: 'Google', Fecha de Ingreso: 1998-08-20}
+[2022-05-27 12:49:26] [INFO] [Main:212] Contenido de la tabla:
+Empleado {id: 2, Nombre: 'Juan Carlos', Edad: 46, Empresa: 'Facebook', Fecha de Ingreso: 2002-01-15}
+Empleado {id: 3, Nombre: 'Rafael', Edad: 33, Empresa: 'Digital', Fecha de Ingreso: 1999-01-15}
+Empleado {id: 4, Nombre: 'Miguel Angel', Edad: 36, Empresa: 'Facebook', Fecha de Ingreso: 1985-01-15}
+Empleado {id: 5, Nombre: 'Donatello', Edad: 56, Empresa: 'Digital', Fecha de Ingreso: 2010-01-15}
+
+[2022-05-27 12:49:26] [INFO] [Main:217] Conexión a DB finalizada
+[2022-05-27 12:56:02] [FATAL] [Main:34] No es posible conectarse
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos puede que ya esté siendo utilizada: null. Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: null. Possible solutions: close all other connection(s); use the server mode [90020-212]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:165)
+	at org.h2.mvstore.db.Store.<init>(Store.java:144)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at empleado.Main.main(Main.java:31)
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/damia/test.mv.db [2.1.212/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:163)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:449)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4118)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 10 more
+[2022-05-27 12:56:26] [FATAL] [Main:34] No es posible conectarse
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos puede que ya esté siendo utilizada: null. Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: null. Possible solutions: close all other connection(s); use the server mode [90020-212]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:165)
+	at org.h2.mvstore.db.Store.<init>(Store.java:144)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at empleado.Main.main(Main.java:31)
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/damia/test.mv.db [2.1.212/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:163)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:449)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4118)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 10 more
+[2022-05-27 12:56:51] [FATAL] [Main:34] No es posible conectarse
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos puede que ya esté siendo utilizada: null. Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: null. Possible solutions: close all other connection(s); use the server mode [90020-212]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:165)
+	at org.h2.mvstore.db.Store.<init>(Store.java:144)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at empleado.Main.main(Main.java:31)
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/damia/test.mv.db [2.1.212/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:163)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:449)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4118)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	... 10 more
+[2022-05-27 12:57:22] [INFO] [Main:38] Conexion a DB correcta
+[2022-05-27 12:57:22] [ERROR] [Main:68] El código presenta un problema
+org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Violación de indice de Unicidad ó Clave primaria: "PRIMARY KEY ON PUBLIC.EMPLEADO(ID) ( /* key:2 */ 2, 'Mark', 46, 'Facebook', DATE '2002-01-15')"
+Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.EMPLEADO(ID) ( /* key:2 */ 2, 'Mark', 46, 'Facebook', DATE '2002-01-15')"; SQL statement:
+INSERT INTO EMPLEADO VALUES (2, 'Damian', 42, 'Digital', '2022-11-20') [23505-212]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:508)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:120)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:519)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:174)
+	at org.h2.command.dml.Insert.update(Insert.java:135)
+	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at empleado.Main.main(Main.java:66)
+[2022-05-27 12:57:22] [DEBUG] [Main:88] Registro original: Empleado {id: 2, Nombre: 'Mark', Edad: 46, Empresa: 'Facebook', Fecha de Ingreso: 2002-01-15}
+[2022-05-27 12:57:22] [DEBUG] [Main:114] Registro modificado: Empleado {id: 2, Nombre: 'Juan Carlos', Edad: 46, Empresa: 'Facebook', Fecha de Ingreso: 2002-01-15}
+[2022-05-27 12:57:22] [INFO] [Main:146] Se eliminó el siguiente Registro: Empleado {id: 1, Nombre: 'Damian', Edad: 42, Empresa: 'Digital', Fecha de Ingreso: 2022-11-20}
+[2022-05-27 12:57:22] [INFO] [Main:178] Se eliminó el siguiente Registro: Empleado {id: 6, Nombre: 'Larry', Edad: 50, Empresa: 'Google', Fecha de Ingreso: 1998-08-20}
+[2022-05-27 12:57:22] [INFO] [Main:214] Contenido de la tabla:
+Empleado {id: 2, Nombre: 'Juan Carlos', Edad: 46, Empresa: 'Facebook', Fecha de Ingreso: 2002-01-15}
+Empleado {id: 3, Nombre: 'Rafael', Edad: 33, Empresa: 'Digital', Fecha de Ingreso: 1999-01-15}
+Empleado {id: 4, Nombre: 'Miguel Angel', Edad: 36, Empresa: 'Facebook', Fecha de Ingreso: 1985-01-15}
+Empleado {id: 5, Nombre: 'Donatello', Edad: 56, Empresa: 'Digital', Fecha de Ingreso: 2010-01-15}
+
+[2022-05-27 12:57:22] [INFO] [Main:219] Conexión a DB finalizada

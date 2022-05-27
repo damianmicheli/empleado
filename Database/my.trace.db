@@ -1,0 +1,109 @@
+2022-05-26 09:15:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "EMPLEADO" ya existe
+Table "EMPLEADO" already exists; SQL statement:
+CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE) [42101-212]
+2022-05-26 09:15:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Imposible interpretar la constante "DATE" "Digital"
+Cannot parse "DATE" constant "Digital" [22007-212]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:506)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.value.ValueDate.parse(ValueDate.java:53)
+	at org.h2.value.Value.convertToDate(Value.java:1854)
+	at org.h2.util.LegacyDateTimeUtils.toDate(LegacyDateTimeUtils.java:162)
+	at org.h2.jdbc.JdbcResultSet.getDate(JdbcResultSet.java:391)
+	at empleado.Empleado.main(Empleado.java:35)
+Caused by: java.lang.NumberFormatException: For input string: "Dig"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:668)
+	at java.base/java.lang.Integer.parseInt(Integer.java:786)
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:190)
+	at org.h2.value.ValueDate.parse(ValueDate.java:51)
+	... 4 more
+2022-05-26 10:10:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: El objeto ya está cerrado
+The object is already closed [90007-212]
+2022-05-26 10:21:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]INSERTa INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; se esperaba "INSERT"
+Syntax error in SQL statement "[*]INSERTa INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; expected "INSERT"; SQL statement:
+INSERTa INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');
+INSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');
+INSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20'); [42001-212]
+2022-05-26 10:22:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "CULO" no encontrada
+Column "CULO" not found; SQL statement:
+select culo from EMPLEADO [42122-212]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:574)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:92)
+	at empleado.Empleado.main(Empleado.java:56)
+2022-05-26 10:27:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "DROP [*]ABLE IF EXISTS EMPLEADO;\000aCREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; se esperaba "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "DROP [*]ABLE IF EXISTS EMPLEADO;\000aCREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP ABLE IF EXISTS EMPLEADO;
+CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);
+INSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');
+INSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');
+INSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20'); [42001-212]
+2022-05-26 10:28:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "DROP [*]TBLE IF EXISTS EMPLEADO;\000aCREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; se esperaba "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "DROP [*]TBLE IF EXISTS EMPLEADO;\000aCREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP TBLE IF EXISTS EMPLEADO;
+CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);
+INSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');
+INSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');
+INSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20'); [42001-212]
+2022-05-26 10:29:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "DROP [*]TBLE IF EXISTS EMPLEADO;\000aCREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; se esperaba "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "DROP [*]TBLE IF EXISTS EMPLEADO;\000aCREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP TBLE IF EXISTS EMPLEADO;
+CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);
+INSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');
+INSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');
+INSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20'); [42001-212]
+2022-05-26 10:30:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "DROP [*]TBLE IF EXISTS EMPLEADO;\000aCREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; se esperaba "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "DROP [*]TBLE IF EXISTS EMPLEADO;\000aCREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP TBLE IF EXISTS EMPLEADO;
+CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);
+INSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');
+INSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');
+INSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20'); [42001-212]
+2022-05-26 10:30:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "DROP [*]TBLE IF EXISTS EMPLEADO;\000aCREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; se esperaba "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "DROP [*]TBLE IF EXISTS EMPLEADO;\000aCREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');\000aINSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');\000aINSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20');"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP TBLE IF EXISTS EMPLEADO;
+CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NOMBRE VARCHAR(255), EDAD INT, EMPRESA VARCHAR(255), FECHAIN DATE);
+INSERT INTO EMPLEADO VALUES(1, 'Damian', 42, 'Digital', '2022-11-20');
+INSERT INTO EMPLEADO VALUES(2, 'Mark', 46, 'Facebook', '2002-01-15');
+INSERT INTO EMPLEADO VALUES(3, 'Larry', 50, 'Google', '1998-08-20'); [42001-212]
+2022-05-26 10:30:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "TETA" no encontrada
+Column "TETA" not found; SQL statement:
+select teta from EMPLEADO [42122-212]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:574)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:92)
+	at empleado.Empleado.main(Empleado.java:56)
